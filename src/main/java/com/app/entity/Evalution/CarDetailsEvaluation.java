@@ -3,8 +3,8 @@ package com.app.entity.Evalution;
 import jakarta.persistence.*;
 
 @Entity
-@Table(name = "car_detailed_evaluation")
-public class CarDetailedEvaluation {
+@Table(name = "car_details_evaluation")
+public class CarDetailsEvaluation {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id", nullable = false)
@@ -16,20 +16,20 @@ public class CarDetailedEvaluation {
     @Column(name = "year_of_manufacturing", nullable = false)
     private Long yearOfManufacturing;
 
-    public Long getKms() {
-        return kms;
-    }
-
-    public void setKms(Long kms) {
-        this.kms = kms;
-    }
-
     public Long getYearOfManufacturing() {
         return yearOfManufacturing;
     }
 
     public void setYearOfManufacturing(Long yearOfManufacturing) {
         this.yearOfManufacturing = yearOfManufacturing;
+    }
+
+    public Long getKms() {
+        return kms;
+    }
+
+    public void setKms(Long kms) {
+        this.kms = kms;
     }
 
     public Long getId() {

@@ -22,11 +22,11 @@ public class SearchCarController {
     //http://localhost:8080/api/v1/search-car/cars?param=auto
     @GetMapping ("/cars")
     public List<Car> searchCar(
-          @RequestParam String param // brand
+          @RequestParam String param
     ){
 
        // Brand carBrandName = brandRepository.findByName(brand);
-       return carRepository.searchCar(param);// brand
+       return carRepository.searchCar(param);
 
 
 
