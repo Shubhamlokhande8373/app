@@ -19,4 +19,14 @@ public class CarEvaluationPhoto {
         this.id = id;
     }
 
+
+
+
+
+
+
+
+
+
+
 }
