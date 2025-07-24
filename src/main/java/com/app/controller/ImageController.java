@@ -2,7 +2,6 @@ package com.app.controller;
 
 import com.app.entity.Cars.Car;
 import com.app.entity.Cars.CarImage;
-import com.app.payload.ImageDto;
 import com.app.repository.CarImageRepository;
 import com.app.repository.CarRepository;
 import com.app.service.BucketService;
@@ -50,13 +49,11 @@ public class ImageController {
         String url = bucketService.uploadFile(file, bucketName);
        // ImageDto imageDto = new ImageDto();
        // imageDto.setImageurl(url);
-        //return new ResponseEntity<>(imageDto,HttpStatus.OK);
         Car car = carRepository.findById(carId).get();
         CarImage image = new CarImage();
         image.setUrl(url);
         image.setCar(car);
-      // CarImage imagesaved = carImageRepository.save(image);
-
+       // CarImage image = carImageRepository.save(image);
         return new ResponseEntity<>(image,HttpStatus.OK);
     }
 }

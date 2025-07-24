@@ -15,10 +15,11 @@ import java.util.List;
 @RequestMapping("/api/v1/actual-car-photos")
 public class ActualCarPhotoController {
     private BucketService bucketService;
+    private CarRepository carRepository;
 
-
-    public ActualCarPhotoController(BucketService bucketService) {
+    public ActualCarPhotoController(BucketService bucketService, CarRepository carRepository) {
         this.bucketService = bucketService;
+        this.carRepository = carRepository;
     }
     // http://localhost:8080/api/v1/actual-car-photos/upload/file/myBucket/car/1
     @PostMapping(path = "/upload/file/{bucketName}/car/{carId}")
@@ -31,7 +32,14 @@ public class ActualCarPhotoController {
         ArrayList<String> carImages = new ArrayList<>();
         for (MultipartFile file : files) {
             String url = bucketService.uploadFile(file, bucketName);
-            carImages.add(url);
+           // carImages.add(url);
+            //save this data in the CarEvalutionPhotos
+                   Car car = carRepository.findById(carId).get();
+                    CarImage image = new CarImage();
+                    image.setUrl(url);
+                    image.setCar(car);
+            // CarImage image = carImageRepository.save(image);
+                     return new ResponseEntity<>(image, HttpStatus.OK);
 
         }
         return null;

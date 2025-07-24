@@ -10,21 +10,6 @@ public class CarEvaluationPhoto {
     @Column(name = "id", nullable = false)
     private Long id;
 
-    @Column(name = "photo_url", nullable = false)
-    private Long photoUrl;
-
-
-    @ManyToOne
-    @JoinColumn(name = "car_detailed_evaluation_id")
-    private CarDetailedEvaluation carDetailedEvaluation;
-
-    public CarDetailedEvaluation getCarDetailedEvaluation() {
-        return carDetailedEvaluation;
-    }
-
-    public void setCarDetailedEvaluation(CarDetailedEvaluation carDetailedEvaluation) {
-        this.carDetailedEvaluation = carDetailedEvaluation;
-    }
 
     public Long getId() {
         return id;
@@ -34,12 +19,14 @@ public class CarEvaluationPhoto {
         this.id = id;
     }
 
-    public Long getPhotoUrl() {
-        return photoUrl;
-    }
 
-    public void setPhotoUrl(Long photoUrl) {
-        this.photoUrl = photoUrl;
-    }
+
+
+
+
+
+
+
+
 
 }
